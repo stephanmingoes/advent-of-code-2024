@@ -11,16 +11,18 @@ export default function main() {
 
       trackedEntries.add(entries[i][j]);
 
-      if (trackedEntries.intersection(rules[entries[i][j]]).size > 0) {
-        console.log("here", j);
-        break inner;
+      const rule = rules[entries[i][j]];
+
+      if (rule) {
+        if (trackedEntries.intersection(rule).size > 0) {
+          break inner;
+        }
       }
 
       if (j === entries[i].length - 1) {
         // finished validating row
 
         const middleNum = entries[i][Math.floor(entries[i].length / 2)];
-
         sum += middleNum;
       }
     }

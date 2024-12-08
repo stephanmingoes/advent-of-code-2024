@@ -14,6 +14,7 @@ function generateRules(): Record<number, Set<number>> {
       rules[num1].add(num2);
     } else {
       rules[num1] = new Set();
+      rules[num1].add(num2);
     }
   });
 
